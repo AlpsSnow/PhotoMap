@@ -5,5 +5,5 @@
 {"type": "Feature","properties": {"cartodb_id":"3","photo date":"2019:10:02 12:20:43","image":"https://github.com/mutou8bit/PhotoMap/tree/master/photo/201910091429041.jpg"},"geometry": {"type": "Point","coordinates": [108.89755397222223,34.193619999999996]}},
 {"type": "Feature","properties": {"cartodb_id":"4","photo date":"2019:10:02 12:40:43","image":"https://github.com/mutou8bit/PhotoMap/tree/master/photo/201910091429042.jpg"},"geometry": {"type": "Point","coordinates": [108.88984497222224,34.200046972222225]}},
 {"type": "Feature","properties": {"cartodb_id":"5","photo date":"2019:10:03 14:05:18","image":"https://github.com/mutou8bit/PhotoMap/tree/master/photo/201910091429043.jpg"},"geometry": {"type": "Point","coordinates": [108.87864397222222,34.200721]}},
-{"type": "Feature","properties": {"cartodb_id":"6","photo date":"2019:10:02 12:04:23","image":"https://github.com/mutou8bit/PhotoMap/tree/master/photo/201910091429045.jpg"},"geometry": {"type": "Point","coordinates": [108.86703197222222,34.227606972222226]}},
+{"type": "Feature","properties": {"cartodb_id":"6","photo date":"2019:10:02 12:04:23","image":"https://github.com/mutou8bit/PhotoMap/tree/master/photo/201910091429045.jpg"},"geometry": {"type": "Point","coordinates": [108.86703197222222,34.227606972222226]}}
 ]}

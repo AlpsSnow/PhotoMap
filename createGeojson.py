@@ -13,7 +13,10 @@ def writeGeojson(file,latLons):
         print(photo)
         file.writelines('{"type": "Feature","properties": {"cartodb_id":"' + str(index) + '"')        
         file.writelines(',"photo date":"' + str(photo[1]) + '","image":"' + 'https://github.com/mutou8bit/PhotoMap/tree/master/photo/' + photo[0] + '"')
-        file.writelines('},"geometry": {"type": "Point","coordinates": [' + str(photo[2]) + ',' + str(photo[3]) + ']}},\n')
+        if index == len(latLons):
+            file.writelines('},"geometry": {"type": "Point","coordinates": [' + str(photo[2]) + ',' + str(photo[3]) + ']}}\n')
+        else:
+            file.writelines('},"geometry": {"type": "Point","coordinates": [' + str(photo[2]) + ',' + str(photo[3]) + ']}},\n')
         index += 1
 
 if __name__ == "__main__":
