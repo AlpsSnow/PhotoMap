@@ -2,12 +2,12 @@ from getExifData import getExifData
 
 def writeGeojson(file,latLons):
     #按照拍摄时间排序    
-    for i in range(0,len(latLons)-1):
-        for j in range(i,len(latLons)-1):
+    for i in range(0,len(latLons)):
+        for j in range(i,len(latLons)):
             if latLons[i][1] > latLons[j][1]:
-                tmp = latLons[j][1]
-                latLons[j][1] = latLons[i][1]
-                latLons[i][1] = tmp
+                tmp = latLons[j]
+                latLons[j] = latLons[i]
+                latLons[i] = tmp
     index = 1
     for photo in latLons:
         print(photo)
