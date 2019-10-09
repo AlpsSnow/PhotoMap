@@ -1,15 +1,27 @@
 from getExifData import getExifData
 
-def writeGeojson(latLons):
-    #按照拍摄时间排序
-    
+def writeGeojson(file,latLons):
+    #按照拍摄时间排序    
+    for i in range(0,len(latLons)-1):
+        for j in range(i,len(latLons)-1):
+            if latLons[i][1] > latLons[j][1]:
+                tmp = latLons[j][1]
+                latLons[j][1] = latLons[i][1]
+                latLons[i][1] = tmp
+    index = 1
+    for photo in latLons:
+        print(photo)
+        file.writelines('{"type": "Feature","properties": {"cartodb_id":"' + str(index) + '"')        
+        file.writelines(',"photo date":"' + str(photo[1]) + '","image":"' + 'https://github.com/mutou8bit/PhotoMap/tree/master/photo/' + photo[0] + '"')
+        file.writelines('},"geometry": {"type": "Point","coordinates": [' + str(photo[2]) + ',' + str(photo[3]) + ']}},\n')
+        index += 1
 
 if __name__ == "__main__":
     wpt='./photo' #图片文件路径
     geojsonFile = open("photo.geojson", "w")
     geojsonFile.writelines('{\n"type": "FeatureCollection","features": [\n')    
     latLons = getExifData(wpt)
-    writeGeojson(latLons)
+    writeGeojson(geojsonFile, latLons)
     geojsonFile.writelines(']}\n')
 
     geojsonFile.close()
