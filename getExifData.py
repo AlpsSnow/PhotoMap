@@ -39,12 +39,21 @@ def getExifData(dirpath):
     latLons=[]
     for root, dirs, files in os.walk(dirpath):
         print('根目录:{0},文件夹:{1},文件数:{2}'.format(root,dirs,len(files)))
+        files.sort()
         for f in files:
             exif=extractExif('{0}/{1}'.format(dirpath,f))
             if exif:                
                 latLons.append(exif)
             else:
-                print(f,'exif is None')                
+                print(f,'exif is None')
+
+    #按照拍摄时间排序
+    for i in range(0,len(latLons)):
+        for j in range(i,len(latLons)):
+            if latLons[i][1] > latLons[j][1]:
+                tmp = latLons[j]
+                latLons[j] = latLons[i]
+                latLons[i] = tmp
     return latLons
 
 if __name__ == "__main__":
