@@ -36,3 +36,7 @@ D:\python work\PhotoMap\PhotoMap>python createGeojson.py
 ```
 D:\python work\PhotoMap\PhotoMap>python resize.py
 ```
+
+### 将GPS坐标转换为百度坐标
+> 1. 在百度地图开放平台申请开发者AK  
+> 2. 将GPS坐标带入[百度的示例程序中](http://lbsyun.baidu.com/jsdemo.htm#a5_2)，转换为百度地图坐标
