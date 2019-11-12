@@ -38,5 +38,8 @@ D:\python work\PhotoMap\PhotoMap>python resize.py
 ```
 
 ### 将GPS坐标转换为百度坐标
+
 > 1. 在百度地图开放平台申请开发者AK  
-> 2. 将GPS坐标带入[百度的示例程序中](http://lbsyun.baidu.com/jsdemo.htm#a5_2)，转换为百度地图坐标
+
+> 2. 将GPS坐标带入[gps2baidump.html](gps2baidump.html)中，就可以转换为百度地图坐标。
+当然你也可以直接使用[百度的示例程序](http://lbsyun.baidu.com/jsdemo.htm#a5_2)，转换为百度地图坐标
