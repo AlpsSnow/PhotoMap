@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
+#!/usr/bin/python
+# -*- coding: UTF-8 -*- 
 
 
 """
@@ -8,9 +8,10 @@
 
 import exifread
 import os
+import sys
 
 #提取照片坐标和拍摄时间
-def extractExif(fpath):    
+def extractExif(fpath):
     try:
         with open(fpath,'rb') as rf:
             exif=exifread.process_file(rf)
@@ -35,14 +36,14 @@ def extractExif(fpath):
         return None
 
 #批量取一个文件夹下照片的名字,日期,坐标，
-def getExifData(dirpath):    
+def getExifData(dirpath):
     latLons=[]
     for root, dirs, files in os.walk(dirpath):
         print('根目录:{0},文件夹:{1},文件数:{2}'.format(root,dirs,len(files)))
         files.sort()
         for f in files:
             exif=extractExif('{0}/{1}'.format(dirpath,f))
-            if exif:                
+            if exif:
                 latLons.append(exif)
             else:
                 print(f,'exif is None')
@@ -57,9 +58,21 @@ def getExifData(dirpath):
     return latLons
 
 if __name__ == "__main__":
-    wpt='./photo' #图片文件路径
+    if len(sys.argv) > 2:
+        wpt=sys.argv[1] #图片文件路径
+    else:
+        wpt='./photo' #图片文件路径
+    if len(sys.argv) > 3:
+        outputpath=sys.argv[2] #gps信息输出路径
+    else:
+        outputpath='' #gps信息输出路径
     latLons = getExifData(wpt)
     if latLons:
-        print(latLons)
+        if outputpath != '':
+            fo = open(outputpath, "w")
+            fo.write(latLons)
+            fo.close
+        else:
+            print(latLons)
     else:
         print('latLons is None')
